@@ -1,7 +1,5 @@
 class CashRegister
-  attr_accessor :total, :discount
-
-  @items = []
+  attr_accessor :total, :discount, :items
 
   def initialize(discount=nil)
     @total = 0
@@ -10,7 +8,7 @@ class CashRegister
 
   def add_item(title, price, quantity=1)
     self.total += price * quantity
-    @items << title unless @items.include?(title)
+    self.items = self.items.push(title)  unless self.items.include?(title)
   end
 
   def apply_discount
