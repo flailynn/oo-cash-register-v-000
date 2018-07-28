@@ -1,5 +1,5 @@
 class CashRegister
-  attr_accessor :total, :discount, :items
+  attr_accessor :total, :discount, :items, :last_transaction
 
   def initialize(discount=nil)
     @total = 0
@@ -12,6 +12,7 @@ class CashRegister
     quantity.times do
       self.items.push(title)
     end
+    self.last_transaction = price * quantity
   end
 
   def apply_discount
